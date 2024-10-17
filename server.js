@@ -33,12 +33,25 @@ const transporter = nodemailer.createTransport({
 
 
 route.post('/text-mail', (req, res) => {
-    const {text } = req.body;
+    const { firstName, lastName, contactNumber, email, occupation, goals } = req.body;  // Extract data from form
+    
+    // Construct the email message body
+    const text = `
+        Client Details from Insurance Website:
+
+        Name: ${firstName} ${lastName}
+        Contact Number: ${contactNumber}
+        Email: ${email} 
+        Occupation: ${occupation}
+        Financial Goal: ${goals}
+
+        Thanks.
+    `;
     
     const mailData = {
         from: 'insuranceadvisormailer@gmail.com',
         to: 'rajeshacharya942@gmail.com',
-        subject: "Client details form insurance website",
+        subject: `Client details of ${firstName}`,
         text: text
     };
 
