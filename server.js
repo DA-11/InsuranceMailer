@@ -47,10 +47,13 @@ route.post('/text-mail', (req, res) => {
 
         Thanks.
     `;
+
+    console.log(text);
+    console.log(goals);
     
     const mailData = {
         from: 'insuranceadvisormailer@gmail.com',
-        to: 'rajeshacharya942@gmail.com',
+        to: 'rajeshacharya94@gmail.com',
         subject: `Client details of ${firstName}`,
         text: text
     };
